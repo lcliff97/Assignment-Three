@@ -21,3 +21,7 @@ setInterval(function () {
   cookies += cps;
   console.log(cookies);
 }, 1000);
+
+fetch("https://cookie-upgrade-api.vercel.app/api/upgrades").then((response) => {
+  response.json();
+});
