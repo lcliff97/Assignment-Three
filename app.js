@@ -1,9 +1,23 @@
-let cookies = 1;
+let cookies = 0;
 
 let cookiesPerClick = 1;
 
 let cps = 1;
 
 const cookieElement = document.getElementById("cookie");
-const cookiesPerClickElement = document.getElementById("cookies per click");
+const cookiesPerClickElement = document.getElementById("cookies-per-click");
 const cookiesPerSecondElement = document.getElementById("cps");
+
+cookieElement.addEventListener(
+  "click",
+  () => {
+    cookies + cookiesPerClick;
+    cookieElement.textContent = `Cookies: ${cookies}`;
+  },
+  1000
+);
+
+setInterval(function () {
+  cookies += cps;
+  console.log(cookies);
+}, 1000);
