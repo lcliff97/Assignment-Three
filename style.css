@@ -1,0 +1,29 @@
+* {
+  background: #f0bb51;
+  background: linear-gradient(
+    90deg,
+    rgba(240, 187, 81, 1) 0%,
+    rgba(240, 125, 110, 1) 50%,
+    rgba(240, 224, 156, 1) 100%
+  );
+}
+
+.Heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cookiebutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: solid 5px;
+  color: burlywood;
+}
+
+.upgrades {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+}

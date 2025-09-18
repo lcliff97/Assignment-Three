@@ -11,8 +11,8 @@ const cookiesPerSecondElement = document.getElementById("cps");
 cookieElement.addEventListener(
   "click",
   () => {
-    cookies + cookiesPerClick;
-    cookieElement.textContent = `Cookies: ${cookies}`;
+    cookiebutton + cookiesPerClick;
+    cookieElement.textContent = `cookiebutton: ${cookies}`;
   },
   1000
 );
