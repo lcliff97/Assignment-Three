@@ -20,6 +20,8 @@ setInterval(function () {
   cookiesElement.textContent = `Cookies: ${cookies}`;
 }, 1000);
 
-fetch("https://cookie-upgrade-api.vercel.app/api/upgrades").then((response) => {
-  response.json();
-});
+fetch("https://cookie-upgrade-api.vercel.app/api/upgrades")
+  .then((response) => response.json())
+  .then((upgradesData) => {
+    console.log(upgradesData);
+  });
