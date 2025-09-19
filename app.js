@@ -1,18 +1,19 @@
 let cookies = 0;
-
 let cookiesPerClick = 1;
-
 let cps = 1;
 
 const cookieButton = document.getElementById("cookiebutton");
 const cookiesElement = document.getElementById("cookies");
-const cookieElement = document.getElementById("cookie");
 const cookiesPerClickElement = document.getElementById("cookies-per-click");
 const cookiesPerSecondElement = document.getElementById("cps");
 
-cookieButtons.addEventListener("click", () => {
+cookiesElement.textContent = `Cookies: ${cookies}`;
+cookiesPerSecondElement.textContent = `Cookies per second: ${cps}`;
+cookiesPerClickElement.textContent = `Cookies per click: ${cookiesPerClick}`;
+
+cookieButton.addEventListener("click", () => {
   cookies += cookiesPerClick;
-  cookieElement.textContent = `cookies: ${cookies}`;
+  cookiesElement.textContent = `Cookies: ${cookies}`;
 });
 
 setInterval(function () {
@@ -35,6 +36,7 @@ async function loadUpgrades() {
     upgradeDiv.querySelector(
       ".increase"
     ).textContent = `+${upgrade.increase} cookies/sec`;
+
     const button = upgradeDiv.querySelector("button.buy");
     button.addEventListener("click", () => {
       if (cookies >= upgrade.cost) {
@@ -45,7 +47,7 @@ async function loadUpgrades() {
         cookiesElement.textContent = `Cookies: ${cookies}`;
         cookiesPerSecondElement.textContent = `Cookies per second: ${cps}`;
       } else {
-        alert("Cookies ");
+        alert("Not enough cookies!");
       }
     });
   });
