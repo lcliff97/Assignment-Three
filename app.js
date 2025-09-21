@@ -26,11 +26,11 @@ async function fetchData() {
     "https://cookie-upgrade-api.vercel.app/api/upgrades"
   );
 
-  const data = await response.json;
+  const data = await response.json();
 
   upgrades.Data.forEach((upgrade) => {
     const upgradeDiv = document.querySelector(
-      `upgrade[data-id="${upgrade.id}"]`
+      `.upgrade[data-id="${upgrade.id}"]`
     );
     if (!upgradeDiv) return;
 
