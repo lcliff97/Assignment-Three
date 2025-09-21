@@ -30,13 +30,29 @@ async function fetchData() {
 
   upgrades.Data.forEach((upgrade) => {
     const upgradeDiv = document.querySelector(
-      `upgrade[data-id="${upgrade.id}"]`);
-      if (!upgradeDiv) return;
-
-      upgradeDiv.querySelector(".name").textContent = upgrade.name;
-      upgradeDiv.querySelector(".cost").textContent = `Cost: ${upgrade.cost}`;
-      upgradeDiv.querySelector(".increase").textContent = `+${upgrade.increase}`;
-
+      `upgrade[data-id="${upgrade.id}"]`
     );
+    if (!upgradeDiv) return;
+
+    upgradeDiv.querySelector(".name").textContent = upgrade.name;
+    upgradeDiv.querySelector(".cost").textContent = `Cost: ${upgrade.cost}`;
+    upgradeDiv.querySelector(
+      ".increase"
+    ).textContent = `+${upgrade.increase} cookies/sec`;
+
+    const button = upgradeDiv.querySelector("button.buy");
+    button.addEventListener("click", () => {
+      if (cookies >= upgrade.cost) {
+        cookies -= upgrade.cost;
+        cps += upgrade.increase;
+        upgrade.cost = Math.floor(upgrade.cost * 1.5);
+        upgradeDiv.querySelector(".cost").textContent = `Cost: ${upgrade.cost}`;
+        cookiesElement.textContent = `Cookies per second: ${cps}`;
+      } else {
+        alert("Cookies are depleted, this matter has reached critical!");
+      }
+    });
   });
 }
+
+fetchData();
