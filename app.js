@@ -29,8 +29,14 @@ async function fetchData() {
   const data = await response.json;
 
   upgrades.Data.forEach((upgrade) => {
-    const upgradeDiv = document.getElementById(
-      `upgrade[data-id="${upgrade.id}"]`
+    const upgradeDiv = document.querySelector(
+      `upgrade[data-id="${upgrade.id}"]`);
+      if (!upgradeDiv) return;
+
+      upgradeDiv.querySelector(".name").textContent = upgrade.name;
+      upgradeDiv.querySelector(".cost").textContent = `Cost: ${upgrade.cost}`;
+      upgradeDiv.querySelector(".increase").textContent = `+${upgrade.increase}`;
+
     );
   });
 }
