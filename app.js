@@ -20,3 +20,17 @@ setInterval(function () {
   cookies += cps;
   cookiesElement.textContent = `Cookies: ${cookies}`;
 }, 1000);
+
+async function fetchData() {
+  const response = await fetch(
+    "https://cookie-upgrade-api.vercel.app/api/upgrades"
+  );
+
+  const data = await response.json;
+
+  upgrades.Data.forEach((upgrade) => {
+    const upgradeDiv = document.getElementById(
+      `upgrade[data-id="${upgrade.id}"]`
+    );
+  });
+}
